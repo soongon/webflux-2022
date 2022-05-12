@@ -14,6 +14,11 @@ public class PostController {
     @Autowired
     private PostService postService;
 
+    @GetMapping("/posts/count")
+    public Mono<Long> postsCount() {
+        return null;
+    }
+
     @GetMapping("/posts")
     public Flux<Post> viewAllPost() {
         return postService.getAllPost();
