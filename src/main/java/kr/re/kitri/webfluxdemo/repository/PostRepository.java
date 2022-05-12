@@ -21,4 +21,15 @@ public class PostRepository {
         );
         return Flux.fromIterable(postList);
     }
+
+    public Mono<Post> selectPostById(int id) {
+        return Mono.just(
+                new Post(1, id, "상세보기", "상세보기 내용입니다.")
+        );
+    }
+
+    public Mono<Void> insertPost(Mono<Post> post) {
+        // 실제로 DB에 인서트..
+        return Mono.empty();
+    }
 }

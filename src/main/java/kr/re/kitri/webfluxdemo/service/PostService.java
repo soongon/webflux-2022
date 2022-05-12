@@ -18,4 +18,12 @@ public class PostService {
     public Flux<Post> getAllPost() {
         return postRepository.selectAllPosts();
     }
+
+    public Mono<Post> getPostById(int id) {
+        return postRepository.selectPostById(id);
+    }
+
+    public Mono<Void> setPost(Mono<Post> post) {
+        return postRepository.insertPost(post);
+    }
 }
