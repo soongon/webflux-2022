@@ -21,6 +21,4 @@ public class R2DBC_PostgresConnection {
                         .build()
                 );
     }
-
-
 }
