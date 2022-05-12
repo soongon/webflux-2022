@@ -28,8 +28,19 @@ public class PostService {
                         new Post(0, 0, "No data", "No data")));
     }
 
-    public Mono<Void> setPost(Mono<Post> post) {
-        return null;
-        //return postRepository.insertPost(post);
+    public Mono<Post> setPost(Mono<Post> post) {
+        return post.flatMap(t -> postRepository.save(t));
+    }
+
+    public Mono<Long> getPostCount() {
+        return postRepository.count();
+    }
+
+    public Mono<Void> deletePostById(int id) {
+        return postRepository.deleteById(id);
+    }
+
+    public Flux<Post> getPostsByTitleLike(String like) {
+        return postRepository.selectPostsByTitleLike(like);
     }
 }
