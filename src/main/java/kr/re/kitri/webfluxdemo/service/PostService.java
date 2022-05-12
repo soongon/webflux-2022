@@ -4,6 +4,7 @@ import kr.re.kitri.webfluxdemo.model.Post;
 import kr.re.kitri.webfluxdemo.repository.PostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 import java.util.List;
@@ -14,7 +15,7 @@ public class PostService {
     @Autowired
     private PostRepository postRepository;
 
-    public Mono<List<Post>> getAllPost() {
+    public Flux<Post> getAllPost() {
         return postRepository.selectAllPosts();
     }
 }
