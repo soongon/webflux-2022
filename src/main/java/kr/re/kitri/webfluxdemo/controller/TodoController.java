@@ -22,6 +22,6 @@ public class TodoController {
 
     @GetMapping("/todos/{id}")
     public Mono<Todo> viewTodoById(@PathVariable long id) {
-
+        return todoService.getTodoById(id);
     }
 }
